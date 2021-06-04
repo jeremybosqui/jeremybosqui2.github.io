@@ -1,0 +1,158 @@
+body { 
+    margin: auto;
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('../images/carte-boussole.1590051.w740.jpg');
+
+}
+/*début de l'agencement en display grid pour l'entierete de la page*/
+.site { 
+    display: grid;
+    grid-template-rows: 400px 1fr 160px auto 1px;
+    grid-template-areas: 
+        "header header header"   
+        " navigation navigation navigation"
+        " introduce introduce introduce"
+        " bodi bodi bodi"
+        " footer footer footer";
+}
+/* faire le header avec l'image en grid pour tester le résultat (mieux de le faire en flex plus simple et plus rapide)*/
+.header { 
+    grid-area: header;
+    background: no-repeat center/100% url('../images/header.jpg.jpg') ;
+    color:rgb(35, 167, 167);
+    font-size: 60px;
+    padding-top: 10%;
+    padding-left: 35%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.63);
+    border-bottom: solid 5px black;
+}
+/* agencement de la barre de navigation en flex car il faut deplacer la div parent en flex pour aligner */
+.navigon { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: navigation;
+    margin-bottom: 2%;
+    background-color: rgb(23, 112, 112);
+}
+.navigation a { 
+    text-decoration: none;
+    color:rgba(255, 255, 255, 0.808) ;
+    font-size: 28px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+
+}
+a { 
+    margin-left: 1rem;
+    padding-right: 1rem;
+}
+
+.searchTerm {
+    width: auto;
+    border: 3px solid rgb(23, 112, 112);
+    border-right: none;
+    padding: 5px;
+    height: 10px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+}
+.searchTerm:focus{
+    color: #00B4CC;
+  }
+  .searchButton {
+    width: 40px;
+    height: 26px;
+    border: 1px solid rgb(23, 112, 112);
+    background: rgb(23, 112, 112);
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  .search {
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
+.search { 
+    height: 25px;
+}
+/*introduce agencement en dessous de la barre de navigation*/
+.intro { 
+    grid-area: introduce;
+    background-color:rgba(255, 255, 255, 0.829);
+    margin-right: 4%;
+    justify-content: center;
+    margin-left: 4%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 1%;
+}
+.intro legend { 
+    font-size: x-large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    text-decoration:underline;
+    color:rgb(23, 112, 112);
+}
+/* agencement du bouton recherche qui est trop grand*/
+
+button i { 
+    font-size: x-large;
+}
+
+.bodi { 
+    display: grid;
+    grid-area: bodi;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 3.8%;
+    background-color: rgba(255, 255, 255, 0.829);
+    grid-gap: 2%;
+    border: 2px solid;
+    padding: 5px;
+    background-size: cover;
+    
+}
+.bodi img { 
+    width: 400px;
+
+}
+.bodi div p { 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    justify-content: center;
+    font-size: large;
+}
+.bodi div h2 { 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:rgb(23, 112, 112);
+}
+
+.footer { 
+    grid-area: footer;
+    border-top: solid 5px black;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: rgb(23, 112, 112);
+}
+.footer i {
+    font-size: 50px;
+    padding-left: 16%;
+    color: white;
+}
+.footer p { 
+    color: aqua;
+    padding-left: 60px;
+}
+@media screen and (max-width: 998px) {
+    .site { 
+        display: grid;
+        grid-template-areas: 
+            "header"
+            "navigation"
+            "introduce"
+            "bodi"
+            "footer";
+    }
+}
